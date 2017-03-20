@@ -2,25 +2,25 @@
 import Foundation
 
 /// This is the base class of actions,do nothing
-class Action:NSObject {
+open class Action:NSObject {
     /// is Canceled
-    dynamic var canceled:Bool = false
+    open dynamic var canceled:Bool = false
 
     /// is Finished
-    dynamic var finished:Bool = false
+    open dynamic var finished:Bool = false
  
     /// Execute
-    func execute(){
+    open func execute(){
         
     }
     
     /// Stop
-    func stop() {
+    open func stop() {
     
     }
     
     /// Cancel
-    func cancel() {
+    open func cancel() {
     
     }
 }
