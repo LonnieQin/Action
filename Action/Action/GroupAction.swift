@@ -2,20 +2,20 @@
 import Foundation
 
 /// Execute actions concomitantly,when each action is finished shouldFinish block will be invoked to decide if this GroupAction is finished. We usually decide whether this action is finished by checking the complete status of actions
-class GroupAction:Action {
+open class GroupAction:Action {
     
     /// Action array
     private let actions:NSArray
     
     /// a block to determine if this action is finished
-    let shouldFinishBlock:([Action])->Bool
+    open let shouldFinishBlock:([Action])->Bool
     
     /// init
     ///
     /// - Parameters:
     ///   - actions: Actions
     ///   - shouldFinish:  determine if this action is finished
-    init(_ actions:Action...,shouldFinish:@escaping ([Action])->Bool) {
+    public init(_ actions:Action...,shouldFinish:@escaping ([Action])->Bool) {
         self.actions = NSArray(array: actions)
         self.shouldFinishBlock = shouldFinish
         super.init()
@@ -28,7 +28,7 @@ class GroupAction:Action {
     /// - Parameters:
     ///   - actions: Actions
     ///   - shouldFinish:  determine if this action is finished
-    init(_ actions:[Action],shouldFinish:@escaping ([Action])->Bool) {
+    public init(_ actions:[Action],shouldFinish:@escaping ([Action])->Bool) {
         self.actions = NSArray(array: actions)
         self.shouldFinishBlock = shouldFinish
         super.init()
@@ -36,20 +36,20 @@ class GroupAction:Action {
         self.actions.addObserver(self, toObjectsAt: IndexSet(integersIn:0..<self.actions.count), forKeyPath: "finished", options: .new, context: nil)
     }
     
-    override func execute() {
+    override open func execute() {
         self.actions.forEach { (action) in
             (action as! Action).execute()
         }
     }
     
-    override func cancel() {
+    override open func cancel() {
         super.cancel()
         actions.forEach { (action) in
             (action as! Action).cancel()
         }
     }
     
-    override func finish() {
+    override open func finish() {
         
         if finished == false {
             finished = true
@@ -60,7 +60,7 @@ class GroupAction:Action {
             }
         }
     }
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         //When action is finished,this code will be executed to determine if this group action is finished.
         if shouldFinishBlock(self.actions as! [Action]) && finished == false && canceled == false{
             finish()
@@ -78,7 +78,7 @@ class GroupAction:Action {
 ///   - action1: action1
 ///   - action2: action2
 /// - Returns: GroupAction
-func && (action1:Action,action2:Action)->GroupAction {
+public func && (action1:Action,action2:Action)->GroupAction {
     return GroupAction(action1,action2,shouldFinish:{$0[0].finished && $0[1].finished})
 }
 /// This function creates one group action.if any sub action is finished,this action is finished.
@@ -87,7 +87,7 @@ func && (action1:Action,action2:Action)->GroupAction {
 ///   - action1: action1
 ///   - action2: action2
 /// - Returns: GroupAction
-func || (action1:Action,action2:Action)->GroupAction  {
+public func || (action1:Action,action2:Action)->GroupAction  {
     return GroupAction(action1,action2,shouldFinish:{$0[0].finished || $0[1].finished})
 }
 prefix func ! (action:Action)->GroupAction  {

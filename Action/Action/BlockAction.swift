@@ -11,14 +11,14 @@ open class BlockAction:Action {
         super.init()
     }
     
-    open override func execute(){
+    override open func execute(){
         block(self)
     }
     
-    override func finish() {
+    override open func finish() {
         finished = true
     }
-    override func cancel() {
+    override open func cancel() {
         canceled = true
     }
 }

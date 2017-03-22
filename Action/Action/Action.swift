@@ -15,7 +15,7 @@ open class Action:NSObject {
     }
     
     /// Stop
-    func finish() {
+    open func finish() {
     
     }
     
@@ -32,7 +32,7 @@ extension Action {
     ///
     /// - Parameter block: Block of code
     /// - Returns: Custom Action
-    static func custom(_ block:@escaping (BlockAction)->Void)->Action {
+    static open func custom(_ block:@escaping (BlockAction)->Void)->Action {
         return BlockAction(block: block)
     }
     
@@ -40,7 +40,7 @@ extension Action {
     ///
     /// - Parameter actions: Sequence
     /// - Returns: Sequence Action
-    static func sequence(_ actions:Action...)->Action {
+    static open func sequence(_ actions:Action...)->Action {
         let sequence = SequenceAction()
         actions.forEach { (action) in
             sequence.addAction(action: action)
@@ -54,7 +54,7 @@ extension Action {
     ///   - actions: Actions
     ///   - shouldFinish: Decide If we should finish this action
     /// - Returns: Group Action
-    static func group(_ actions:Action...,shouldFinish:@escaping ([Action])->Bool)->Action {
+    static open func group(_ actions:Action...,shouldFinish:@escaping ([Action])->Bool)->Action {
         let group = GroupAction(actions, shouldFinish: shouldFinish)
         return group
     }

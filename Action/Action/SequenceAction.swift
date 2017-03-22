@@ -2,10 +2,10 @@
 import Foundation
 
 /// 顺序执行多个Action，最后一个Action执行完的时候结束
-class SequenceAction:Action{
+open class SequenceAction:Action{
     var actions:[Action] = []
     var selectedIndex = 0
-    init(_ actions:Action...) {
+    public init(_ actions:Action...) {
         self.actions = actions
         super.init()
         //Add Notifications
@@ -14,20 +14,20 @@ class SequenceAction:Action{
         }
     }
     
-    func addAction(action:Action) {
+    open func addAction(action:Action) {
         actions.append(action)
         action.addObserver(self, forKeyPath: "finished", options: .new, context: nil)
     }
     
-    override func execute() {
+    override open func execute() {
         actions[selectedIndex].execute()
     }
-    override func cancel() {
+    override open func cancel() {
         super.cancel()
         actions[selectedIndex].cancel()
     }
     
-    override func finish() {
+    override open func finish() {
         if finished == false {
             finished = true
             if actions[selectedIndex].finished == false {
@@ -35,7 +35,7 @@ class SequenceAction:Action{
             }
         }
     }
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         let index = actions.index(of: object as! Action)
         if index == actions.count-1 {
             finish()

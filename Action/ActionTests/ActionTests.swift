@@ -38,10 +38,8 @@ class ActionTests: XCTestCase {
     
     func testGroupAction() {
         let action1 = Action.custom { (action) in
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.1, execute: {
-                print("Block Action 1")
-                action.finish()
-            })
+            print("Block Action 1")
+            action.finish()
         }
         let action2 = Action.custom { (action) in
             print("Block Action 2")
