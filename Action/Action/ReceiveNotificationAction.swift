@@ -35,7 +35,7 @@ class ReceiveNotificationAction: Action {
         }
     }
     
-    override func stop() {
+    override func finish() {
         if addNotificaion == true {
             NotificationCenter.default.removeObserver(self)
             addNotificaion = false

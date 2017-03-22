@@ -11,26 +11,48 @@ import XCTest
 
 class ActionTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testBlockAction() {
+        let action = BlockAction {
+            print("Hello world")
+            $0.finish()
         }
+        action.execute()
     }
     
+    func testSequenceAction() {
+        let sequence = Action.sequence(
+        .custom {
+            print("1")
+            $0.finish()
+        },
+        .custom {
+            print("2")
+            $0.finish()
+        },
+        .custom {
+            print("3")
+            $0.finish()
+        })
+        sequence.execute()
+    }
+    
+    func testGroupAction() {
+        let action1 = Action.custom { (action) in
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.1, execute: {
+                print("Block Action 1")
+                action.finish()
+            })
+        }
+        let action2 = Action.custom { (action) in
+            print("Block Action 2")
+            action.finish()
+        }
+ 
+        //action1 or action2 finish will finish this action
+        (action1 || action2).execute()
+        action1.finished = false
+        action2.finished = false
+        //Action1 and action2 finish will finish this action
+        (action1 && action2).execute()
+    }
 }

@@ -23,6 +23,19 @@ class GroupAction:Action {
         self.actions.addObserver(self, toObjectsAt: IndexSet(integersIn:0..<self.actions.count), forKeyPath: "finished", options: .new, context: nil)
     }
     
+    /// init
+    ///
+    /// - Parameters:
+    ///   - actions: Actions
+    ///   - shouldFinish:  determine if this action is finished
+    init(_ actions:[Action],shouldFinish:@escaping ([Action])->Bool) {
+        self.actions = NSArray(array: actions)
+        self.shouldFinishBlock = shouldFinish
+        super.init()
+        //Monitor these actions
+        self.actions.addObserver(self, toObjectsAt: IndexSet(integersIn:0..<self.actions.count), forKeyPath: "finished", options: .new, context: nil)
+    }
+    
     override func execute() {
         self.actions.forEach { (action) in
             (action as! Action).execute()
@@ -36,13 +49,13 @@ class GroupAction:Action {
         }
     }
     
-    override func stop() {
+    override func finish() {
         
         if finished == false {
             finished = true
             actions.forEach { (action) in
                 if (action as! Action).finished == false {
-                    (action as! Action).stop()
+                    (action as! Action).finish()
                 }
             }
         }
@@ -50,7 +63,7 @@ class GroupAction:Action {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         //When action is finished,this code will be executed to determine if this group action is finished.
         if shouldFinishBlock(self.actions as! [Action]) && finished == false && canceled == false{
-            stop()
+            finish()
         }
     }
     deinit {

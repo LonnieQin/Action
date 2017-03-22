@@ -16,6 +16,7 @@ class SequenceAction:Action{
     
     func addAction(action:Action) {
         actions.append(action)
+        action.addObserver(self, forKeyPath: "finished", options: .new, context: nil)
     }
     
     override func execute() {
@@ -26,18 +27,18 @@ class SequenceAction:Action{
         actions[selectedIndex].cancel()
     }
     
-    override func stop() {
+    override func finish() {
         if finished == false {
             finished = true
             if actions[selectedIndex].finished == false {
-                actions[selectedIndex].stop()
+                actions[selectedIndex].finish()
             }
         }
     }
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         let index = actions.index(of: object as! Action)
         if index == actions.count-1 {
-            stop()
+            finish()
         } else {
             selectedIndex += 1
             actions[selectedIndex].execute()

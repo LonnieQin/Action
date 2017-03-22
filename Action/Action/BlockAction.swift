@@ -15,7 +15,10 @@ class BlockAction:Action {
         block(self)
     }
     
-    override func stop() {
+    override func finish() {
         finished = true
+    }
+    override func cancel() {
+        canceled = true
     }
 }

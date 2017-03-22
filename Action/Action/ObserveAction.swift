@@ -21,9 +21,9 @@ class ObserveAction:Action {
     }
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         self.change = change
-        stop()
+        finish()
     }
-    override func stop() {
+    override func finish() {
         finished = true
         if isAdded {
             isAdded = false
