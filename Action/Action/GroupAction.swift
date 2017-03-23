@@ -102,3 +102,39 @@ prefix operator ✕
 prefix func ✕ (action:Action)->GroupAction  {
     return GroupAction(action,shouldFinish:{_ in false})
 }
+
+extension Action {
+    open func and(_ action:Action)->Action {
+        return self && action
+    }
+    open func or(_ action:Action)->Action {
+        return self || action
+    }
+
+    open func not()->Action {
+        return !self
+    }
+
+    open func yes()->Action {
+        return ✓self
+    }
+    open func no()->Action {
+        return ✕self
+    }
+    
+    static open func and(_ action1:Action,_ action2:Action)->Action {
+        return action1 && action2
+    }
+    static open func or(_ action1:Action,_ action2:Action)->Action {
+        return action1 || action2
+    }
+    static open func not(_ action:Action)->Action {
+        return !action
+    }
+    static open func yes(_ action:Action)->Action {
+        return ✓action
+    }
+    static open func no(_ action:Action)->Action {
+        return ✕action
+    }
+}

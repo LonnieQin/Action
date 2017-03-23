@@ -5,10 +5,11 @@ import Foundation
 open class Action:NSObject {
     /// is Canceled
     open dynamic var canceled:Bool = false
-
     /// is Finished
     open dynamic var finished:Bool = false
- 
+    /// is executing
+    open dynamic var executing:Bool = false
+    
     /// Execute
     open func execute(){
         
@@ -16,12 +17,12 @@ open class Action:NSObject {
     
     /// Stop
     open func finish() {
-    
+        
     }
     
     /// Cancel
     open func cancel() {
-    
+        
     }
 }
 
@@ -47,7 +48,7 @@ extension Action {
         }
         return sequence
     }
-
+    
     /// Group Action
     ///
     /// - Parameters:
@@ -57,5 +58,20 @@ extension Action {
     static open func group(_ actions:[Action],shouldFinish:@escaping ([Action])->Bool)->Action {
         let group = GroupAction(actions, shouldFinish: shouldFinish)
         return group
+    }
+    
+    
+    /// Delay
+    ///
+    /// - Parameter duration: Duration
+    /// - Returns: An Action That Delay duration sections
+    static open func delay(duration:TimeInterval)->Action {
+        return Action.custom({ (action) in
+            DispatchQueue.main.asyncAfter(deadline: .now()+duration, execute: {
+                if !action.canceled {
+                    action.finish()
+                }
+            })
+        })
     }
 }

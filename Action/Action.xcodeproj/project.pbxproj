@@ -16,6 +16,7 @@
 		186480581E7A8E4F00B11C92 /* Action.h in Headers */ = {isa = PBXBuildFile; fileRef = 1864804A1E7A8E4F00B11C92 /* Action.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1864806A1E7A8EA900B11C92 /* ObserveAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186480691E7A8EA900B11C92 /* ObserveAction.swift */; };
 		1864806C1E7A8EAE00B11C92 /* ReceiveNotificationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864806B1E7A8EAE00B11C92 /* ReceiveNotificationAction.swift */; };
+		1891D2331E83D6B200A5721C /* UIViewActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1891D2321E83D6B200A5721C /* UIViewActions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		186480571E7A8E4F00B11C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		186480691E7A8EA900B11C92 /* ObserveAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserveAction.swift; sourceTree = "<group>"; };
 		1864806B1E7A8EAE00B11C92 /* ReceiveNotificationAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveNotificationAction.swift; sourceTree = "<group>"; };
+		1891D2321E83D6B200A5721C /* UIViewActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewActions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				181294D61E83660900A14CFE /* SequenceAction.swift */,
 				181294D71E83660900A14CFE /* GroupAction.swift */,
 				181294D81E83660900A14CFE /* BlockAction.swift */,
+				1891D2321E83D6B200A5721C /* UIViewActions.swift */,
 				181294D91E83660900A14CFE /* Action.swift */,
 				1864804A1E7A8E4F00B11C92 /* Action.h */,
 				1864804B1E7A8E4F00B11C92 /* Info.plist */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				181294DA1E83660900A14CFE /* SequenceAction.swift in Sources */,
+				1891D2331E83D6B200A5721C /* UIViewActions.swift in Sources */,
 				181294DD1E83660900A14CFE /* Action.swift in Sources */,
 				1864806C1E7A8EAE00B11C92 /* ReceiveNotificationAction.swift in Sources */,
 				181294DC1E83660900A14CFE /* BlockAction.swift in Sources */,
