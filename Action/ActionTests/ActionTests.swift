@@ -46,11 +46,11 @@ class ActionTests: XCTestCase {
             action.finish()
         }
  
-        //action1 or action2 finish will finish this action
+        //action1 or action2 finish will pass this action
         (action1 || action2).execute()
         action1.finished = false
         action2.finished = false
-        //Action1 and action2 finish will finish this action
+        //Action1 and action2 finish will pass this action
         (action1 && action2).execute()
     }
 }

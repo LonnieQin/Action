@@ -14,6 +14,15 @@ open class SequenceAction:Action{
         }
     }
     
+    public init(_ actions:[Action]) {
+        self.actions = actions
+        super.init()
+        //Add Notifications
+        if self.actions.count > 0 {
+            (actions as NSArray).addObserver(self, toObjectsAt: IndexSet(integersIn:0..<self.actions.count), forKeyPath: "finished", options: .new, context: nil)
+        }
+    }
+    
     open func addAction(action:Action) {
         actions.append(action)
         action.addObserver(self, forKeyPath: "finished", options: .new, context: nil)

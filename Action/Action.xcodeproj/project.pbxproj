@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181294DA1E83660900A14CFE /* SequenceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181294D61E83660900A14CFE /* SequenceAction.swift */; };
+		181294DB1E83660900A14CFE /* GroupAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181294D71E83660900A14CFE /* GroupAction.swift */; };
+		181294DC1E83660900A14CFE /* BlockAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181294D81E83660900A14CFE /* BlockAction.swift */; };
+		181294DD1E83660900A14CFE /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181294D91E83660900A14CFE /* Action.swift */; };
 		186480511E7A8E4F00B11C92 /* Action.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186480471E7A8E4F00B11C92 /* Action.framework */; };
 		186480561E7A8E4F00B11C92 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186480551E7A8E4F00B11C92 /* ActionTests.swift */; };
 		186480581E7A8E4F00B11C92 /* Action.h in Headers */ = {isa = PBXBuildFile; fileRef = 1864804A1E7A8E4F00B11C92 /* Action.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		186480621E7A8E8E00B11C92 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186480611E7A8E8E00B11C92 /* Action.swift */; };
-		186480641E7A8E9900B11C92 /* BlockAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186480631E7A8E9900B11C92 /* BlockAction.swift */; };
-		186480661E7A8E9E00B11C92 /* GroupAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186480651E7A8E9E00B11C92 /* GroupAction.swift */; };
-		186480681E7A8EA400B11C92 /* SequenceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186480671E7A8EA400B11C92 /* SequenceAction.swift */; };
 		1864806A1E7A8EA900B11C92 /* ObserveAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186480691E7A8EA900B11C92 /* ObserveAction.swift */; };
 		1864806C1E7A8EAE00B11C92 /* ReceiveNotificationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1864806B1E7A8EAE00B11C92 /* ReceiveNotificationAction.swift */; };
 /* End PBXBuildFile section */
@@ -29,16 +29,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181294D61E83660900A14CFE /* SequenceAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceAction.swift; sourceTree = "<group>"; };
+		181294D71E83660900A14CFE /* GroupAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupAction.swift; sourceTree = "<group>"; };
+		181294D81E83660900A14CFE /* BlockAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockAction.swift; sourceTree = "<group>"; };
+		181294D91E83660900A14CFE /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		186480471E7A8E4F00B11C92 /* Action.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Action.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1864804A1E7A8E4F00B11C92 /* Action.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		1864804B1E7A8E4F00B11C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		186480501E7A8E4F00B11C92 /* ActionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ActionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		186480551E7A8E4F00B11C92 /* ActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
 		186480571E7A8E4F00B11C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		186480611E7A8E8E00B11C92 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
-		186480631E7A8E9900B11C92 /* BlockAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockAction.swift; sourceTree = "<group>"; };
-		186480651E7A8E9E00B11C92 /* GroupAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupAction.swift; sourceTree = "<group>"; };
-		186480671E7A8EA400B11C92 /* SequenceAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceAction.swift; sourceTree = "<group>"; };
 		186480691E7A8EA900B11C92 /* ObserveAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserveAction.swift; sourceTree = "<group>"; };
 		1864806B1E7A8EAE00B11C92 /* ReceiveNotificationAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveNotificationAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,10 +85,10 @@
 			children = (
 				1864806B1E7A8EAE00B11C92 /* ReceiveNotificationAction.swift */,
 				186480691E7A8EA900B11C92 /* ObserveAction.swift */,
-				186480671E7A8EA400B11C92 /* SequenceAction.swift */,
-				186480651E7A8E9E00B11C92 /* GroupAction.swift */,
-				186480631E7A8E9900B11C92 /* BlockAction.swift */,
-				186480611E7A8E8E00B11C92 /* Action.swift */,
+				181294D61E83660900A14CFE /* SequenceAction.swift */,
+				181294D71E83660900A14CFE /* GroupAction.swift */,
+				181294D81E83660900A14CFE /* BlockAction.swift */,
+				181294D91E83660900A14CFE /* Action.swift */,
 				1864804A1E7A8E4F00B11C92 /* Action.h */,
 				1864804B1E7A8E4F00B11C92 /* Info.plist */,
 			);
@@ -215,12 +215,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				186480661E7A8E9E00B11C92 /* GroupAction.swift in Sources */,
-				186480621E7A8E8E00B11C92 /* Action.swift in Sources */,
+				181294DA1E83660900A14CFE /* SequenceAction.swift in Sources */,
+				181294DD1E83660900A14CFE /* Action.swift in Sources */,
 				1864806C1E7A8EAE00B11C92 /* ReceiveNotificationAction.swift in Sources */,
-				186480681E7A8EA400B11C92 /* SequenceAction.swift in Sources */,
+				181294DC1E83660900A14CFE /* BlockAction.swift in Sources */,
 				1864806A1E7A8EA900B11C92 /* ObserveAction.swift in Sources */,
-				186480641E7A8E9900B11C92 /* BlockAction.swift in Sources */,
+				181294DB1E83660900A14CFE /* GroupAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +424,7 @@
 				1864805D1E7A8E4F00B11C92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1864805E1E7A8E4F00B11C92 /* Build configuration list for PBXNativeTarget "ActionTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +433,7 @@
 				186480601E7A8E4F00B11C92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
